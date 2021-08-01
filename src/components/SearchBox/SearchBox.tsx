@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-const SearchBox = () => {
+type TSearch = {
+  handleSubmit: (value: string) => void;
+  loading: boolean;
+};
+
+const SearchBox = ({ handleSubmit, loading }: TSearch): JSX.Element => {
+  const input = useRef<any>('');
+  const submitForm = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    console.log(input.current.value);
+    handleSubmit(input.current.value);
+  };
   return (
-    <form className="flex flex-col pt-8 max-w-sm mx-auto">
-      <input placeholder="Buscar Productos" className="appearance-none p-2 mb-3 shadow-md" />
+    <form className="flex flex-col pt-8 max-w-sm mx-auto" onSubmit={submitForm}>
+      <input
+        placeholder="Buscar Productos"
+        className="appearance-none p-2 mb-3 shadow-md"
+        ref={input}
+      />
       <button
-        type="button"
-        className="p-2 bg-green-600 font-bold text-white rounded-md ring-green-400"
+        type="submit"
+        className={`p-2 bg-green-600 font-bold text-white rounded-md ring-green-400
+          ${loading && 'opacity-50'}
+          `}
+        disabled={loading}
       >
-        Buscar
+        {loading ? 'Loading...' : 'Buscar'}
       </button>
     </form>
   );

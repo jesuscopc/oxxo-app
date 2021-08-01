@@ -1,11 +1,8 @@
 import axios, { Method, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { ResponseHandler } from 'interfaces/Http.interface';
 
-function get(url: string): Promise<ResponseHandler> {
-  const customHeaders = new Headers();
-  customHeaders.append('X-RapidAPI-Key', '08262758a0mshad9f2f9f7fe4ee5p17abf1jsnca777cd83d6a');
-  customHeaders.append('X-RapidAPI-Host', 'amazon24.p.rapidapi.com');
-  return SendRequest('get', url, customHeaders);
+function get(url: string, customHeaders?: unknown, params?: unknown): Promise<ResponseHandler> {
+  return SendRequest('get', url, null, customHeaders, params);
 }
 
 function post(url: string) {
@@ -16,14 +13,20 @@ function post(url: string) {
   return SendRequest('post', url, customHeaders);
 }
 
-function SendRequest(httpMethod: Method, url: string, body?: unknown, headers?: unknown) {
+function SendRequest(
+  httpMethod: Method,
+  url: string,
+  body?: unknown,
+  headers?: unknown,
+  params?: unknown
+) {
   const requestConfig: AxiosRequestConfig = {
     method: httpMethod,
     url,
     data: body,
-    headers: headers
+    headers: headers,
+    params
   };
-  console.log(requestConfig);
   return axios.request(requestConfig).then(successHandler).catch(errorHandler);
 }
 

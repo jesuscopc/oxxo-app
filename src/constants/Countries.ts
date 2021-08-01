@@ -3,11 +3,11 @@ import { TCatalog } from 'components/Select/Select';
 export const COUNTRIES: TCatalog[] = [
   {
     id: 'MX',
-    value: 'Mexico'
+    name: 'Mexico'
   },
   {
     id: 'US',
-    value: 'Estados Unidos'
+    name: 'Estados Unidos'
   }
 ];
 

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export type TCatalog = {
   id: string;
-  value: string;
+  name: string;
 };
 
 interface TSelect {
@@ -10,9 +10,10 @@ interface TSelect {
   options: TCatalog[];
   onSelect: React.ChangeEventHandler<HTMLSelectElement>;
   name: string;
+  isLoading?: boolean;
 }
 
-const Select = ({ label, name, options, onSelect }: TSelect): React.ReactElement => {
+const Select = ({ label, name, options, isLoading, onSelect }: TSelect): React.ReactElement => {
   return (
     <>
       <label className="font-black pb-2">{label}</label>
@@ -21,11 +22,15 @@ const Select = ({ label, name, options, onSelect }: TSelect): React.ReactElement
         onChange={onSelect}
         name={name}
       >
-        {options.map(({ id, value }) => (
-          <option className="appearance-none h-3  " key={id} value={id}>
-            {value}
-          </option>
-        ))}
+        {isLoading ? (
+          <option>Loading...</option>
+        ) : (
+          options.map(({ id, name }) => (
+            <option className="appearance-none h-3  " key={id} value={id}>
+              {name}
+            </option>
+          ))
+        )}
       </select>
     </>
   );
