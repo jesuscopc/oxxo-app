@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SUit test SearchBox should be render correctly 1`] = `
+<form
+  className="flex flex-col pt-8 max-w-sm mx-auto"
+  onSubmit={[Function]}
+>
+  <input
+    className="appearance-none p-2 mb-3 shadow-md"
+    placeholder="Buscar Productos"
+  />
+  <button
+    className="p-2 bg-green-600 font-bold text-white rounded-md ring-green-400
+          false
+          "
+    disabled={false}
+    type="submit"
+  >
+    Buscar
+  </button>
+</form>
+`;

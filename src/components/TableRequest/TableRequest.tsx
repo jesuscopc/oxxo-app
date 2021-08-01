@@ -1,11 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 type TItem = {
-  app_sale_price: string;
-  app_sale_price_currency: string;
-  evaluate_rate: string;
-  isBestSeller: boolean;
-  isPrime: boolean;
   original_price: string;
   product_detail_url: string;
   product_id: string;

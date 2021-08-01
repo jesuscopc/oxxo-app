@@ -9,7 +9,6 @@ const SearchBox = ({ handleSubmit, loading }: TSearch): JSX.Element => {
   const input = useRef<any>('');
   const submitForm = (e: React.SyntheticEvent) => {
     e.preventDefault();
-    console.log(input.current.value);
     handleSubmit(input.current.value);
   };
   return (

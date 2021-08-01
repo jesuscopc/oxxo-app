@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SUit test Select should be render correctly 1`] = `
+<Fragment>
+  <label
+    className="font-black pb-2"
+  >
+    Selecciona Pais
+  </label>
+  <select
+    className="p-5 mb-3 shadow-lg bg-blue-400 text-white rounded-lg font-bold"
+    name="pais"
+    onChange={[Function]}
+  >
+    <option
+      className="appearance-none h-3  "
+      key="1"
+      value="1"
+    >
+      option1
+    </option>
+  </select>
+</Fragment>
+`;
