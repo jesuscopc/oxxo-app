@@ -5,14 +5,6 @@ function get(url: string, customHeaders?: unknown, params?: unknown): Promise<Re
   return SendRequest('get', url, null, customHeaders, params);
 }
 
-function post(url: string) {
-  const customHeaders = {
-    'X-RapidAPI-Key': '08262758a0mshad9f2f9f7fe4ee5p17abf1jsnca777cd83d6a',
-    'X-RapidAPI-Host': 'amazon24.p.rapidapi.com'
-  };
-  return SendRequest('post', url, customHeaders);
-}
-
 function SendRequest(
   httpMethod: Method,
   url: string,
@@ -52,4 +44,4 @@ function errorHandler(): Promise<ResponseHandler> {
   return Promise.reject(result);
 }
 
-export { get, post };
+export { get };
