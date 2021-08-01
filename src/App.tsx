@@ -1,6 +1,6 @@
 import React from 'react';
 import OxxoApp from './root/OxxoApp';
-import './index.scss';
+import './index.css';
 
 const App = (): React.ReactElement => {
   return <OxxoApp />;

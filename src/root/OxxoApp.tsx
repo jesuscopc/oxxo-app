@@ -1,7 +1,13 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import Routes from './Routes';
 
-const OxxoApp = (): React.ReactElement => {
-  return <h1>Oxxo app working</h1>;
+const MlApp = (): React.ReactElement => {
+  return (
+    <BrowserRouter basename="/">
+      <Routes />
+    </BrowserRouter>
+  );
 };
 
-export default OxxoApp;
+export default MlApp;

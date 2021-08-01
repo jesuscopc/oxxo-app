@@ -16,16 +16,19 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader', 'postcss-loader']
       },
       {
         test: /\.(jpg|png|svg|gif)$/,
+        exclude: /node_modules/,
         use: {
           loader: 'url-loader'
         }
       },
       {
         test: /\.(woff|woff2|ttf)$/,
+        exclude: /node_modules/,
         use: {
           loader: 'url-loader?limit=1024&name=fonts/[name].[ext]'
         }
